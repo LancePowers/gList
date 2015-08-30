@@ -9,4 +9,4 @@ $('form').on('submit', function(event){
   var searchTerm = $('#search-term').val().trim();
   getAlbums(searchTerm);
   $('p').show();
-})
+});
