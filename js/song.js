@@ -1,4 +1,4 @@
-var api = require(./api.js);
+var api = require('./api.js');
 
 function Song(name){
   this.name = name;
@@ -6,7 +6,6 @@ function Song(name){
   this.onList = true;
 }
 
-// needs to be song
 Song.prototype.getSentiment = function(text,target,callback){
   $.ajax({
     url: 'http://access.alchemyapi.com/calls/text/TextGetTargetedSentiment',
@@ -18,21 +17,10 @@ Song.prototype.getSentiment = function(text,target,callback){
       outputMode: 'json',
     },
     success: function(response, status){
-      callback(response.docSentiment.score);
+      this.score += parseFloat(response);
+      console.log(parseFloat(response));
     }
   });
-}
-
-Song.prototype.songSentiment = function(text, target){
-  this.getSentiment(text,target,function(response){
-    sentimentScore += parseFloat(response);
-    console.log(parseFloat(response));
-  });
-}
-
-Song.prototype.updateSentiment = function () {
-  this.score += sentimentScore
-  sentimentScore = 0;
 };
 
 // module.exports = Song;
