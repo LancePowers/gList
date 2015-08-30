@@ -12,9 +12,9 @@ Playlist.prototype.clearSpaces = function(searchTerm){
       searchTerm.charAt(i) = '+';
     }
   }
-  console.log(searchTerm)
+  console.log(searchTerm);
   return searchTerm;
-}
+};
 
 Playlist.prototype.getAlbums = function(searchTerm){
   var request = $.ajax({
@@ -40,8 +40,8 @@ Playlist.prototype.getAlbums = function(searchTerm){
       display = '<img src="'+albumImage+'"/>'
       $('.results').append('<li>' + albumName +'\n'+ display + '\n' + spotifyLink + '</li>');
       // var fullData = album.href
-    })
-  })
+    });
+  });
 };
 
 Playlist.prototype.getFullResults = function(album){
@@ -54,7 +54,7 @@ Playlist.prototype.getFullResults = function(album){
     var artistUrl = response.artists[0].href;
     this.getArtist(artistUrl);
     console.log(artistUrl);
-  })
+  });
 };
 
 Playlist.prototype.getArtist = function(artistUrl){
@@ -64,9 +64,9 @@ Playlist.prototype.getArtist = function(artistUrl){
     dataType: 'json',
   });
   request.done(function(response){
-    console.log(response)
-  })
-}
+    console.log(response);
+  });
+};
 
 Playlist.prototype.addSong = function (song) {
   this.songs.push(new Song(song));
