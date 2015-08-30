@@ -1,5 +1,5 @@
-var api = require(./api.js);
-
+// var api = require(api.js);
+var sentimentScore = 0;
 function Song(name){
   this.name = name;
   this.score = 3;
@@ -12,7 +12,7 @@ Song.prototype.getSentiment = function(text,target,callback){
     url: 'http://access.alchemyapi.com/calls/text/TextGetTargetedSentiment',
     method: 'GET',
     data:{
-      apikey: api.alchemy,
+      apikey: alchemy,
       text: text,
       target: target,
       outputMode: 'json',
@@ -36,4 +36,3 @@ Song.prototype.updateSentiment = function () {
 };
 
 // module.exports = Song;
-//I’m trying to use an ajax call to update variables in an array of objects. I was hoping to do this.variable = result, but I can’t use ‘this’ in the callback function and I don’t think I can pass ‘this' into the callback. Is there a way to do this or am I barking up the wrong tree?

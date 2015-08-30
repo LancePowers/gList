@@ -1,4 +1,4 @@
-var Song = require('./song');
+// var Song = require('song.js');
 
 function Playlist(name){
   this.name = name;
